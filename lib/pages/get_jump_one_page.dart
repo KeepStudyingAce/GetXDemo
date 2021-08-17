@@ -11,7 +11,23 @@ class GetJumpOnePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text('跨页面-One')),
+      appBar: AppBar(
+        title: Text('跨页面-One'),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              if (Get.locale.countryCode == "CN") {
+                var locale = Locale('en', 'US');
+                Get.updateLocale(locale);
+              } else {
+                var locale = Locale('zh', 'CN');
+                Get.updateLocale(locale);
+              }
+            },
+            child: Icon(Icons.change_circle),
+          )
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         heroTag: "ssss",
         onPressed: () => logic.toJumpTwo(),

@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:getx_demo/app_localizations.dart';
 import 'package:getx_demo/pages/counter_get_page.dart';
 import 'package:getx_demo/pages/get_jump_one_page.dart';
 import 'package:getx_demo/route_config.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,6 +16,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      translations: AppLocalizations(), // 你的翻译
+      locale: Locale('en', 'US'), // 将会按照此处指定的语言翻译
+      fallbackLocale: Locale('zh', 'CN'), // 添加一个回调语言选项，以备上面指定的语言翻译不存在
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -26,12 +31,12 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
           items: [
             BottomNavigationBarItem(
-              label: "计数器",
+              label: "tab_count".tr,
               icon: Icon(Icons.calculate),
               activeIcon: Icon(Icons.calculate_outlined),
             ),
             BottomNavigationBarItem(
-              label: "路由",
+              label: "tab_route".tr,
               icon: Icon(Icons.router),
               activeIcon: Icon(Icons.router_outlined),
             )

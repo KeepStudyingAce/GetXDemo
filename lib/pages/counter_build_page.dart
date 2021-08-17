@@ -16,7 +16,7 @@ initState，dispose等：GetBuilder拥有StatefulWidget所有周期回调，可�
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GetX(Obx)计数器'),
+        title: const Text('GetX(GetBuilder)计数器'),
       ),
       body: Center(
         child: GetBuilder<CounterGetController>(
